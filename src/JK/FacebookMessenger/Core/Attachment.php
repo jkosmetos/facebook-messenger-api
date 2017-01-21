@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: john
- * Date: 2016/06/14
- * Time: 8:48 AM
- */
 
 namespace JK\FacebookMessenger\Core;
 
@@ -16,6 +10,9 @@ abstract class Attachment implements AttachmentInterface
 {
     const TYPE_IMAGE = 'image';
     const TYPE_TEMPLATE = 'template';
+    const TYPE_AUDIO = 'audio';
+    const TYPE_VIDEO = 'video';
+    const TYPE_FILE = 'file';
 
     /**
      * @var string

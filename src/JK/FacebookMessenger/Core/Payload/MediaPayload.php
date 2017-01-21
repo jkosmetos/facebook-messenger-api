@@ -1,20 +1,14 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: john
- * Date: 2016/06/14
- * Time: 8:56 AM
- */
 
 namespace JK\FacebookMessenger\Core\Payload;
 
 use JK\FacebookMessenger\Core\Payload;
 
 /**
- * Class ImagePayload
+ * Class MediaPayload
  * @package JK\FacebookMessenger\Core\Payload
  */
-class ImagePayload extends Payload
+class MediaPayload extends Payload
 {
     /**
      * @var string
@@ -22,7 +16,7 @@ class ImagePayload extends Payload
     protected $url;
 
     /**
-     * ImagePayload constructor.
+     * MediaPayload constructor.
      * @param string $url
      */
     public function __construct($url = '')
