@@ -2,8 +2,11 @@
 
 namespace JK\FacebookMessenger;
 
+use JK\FacebookMessenger\Core\Attachment\AudioAttachment;
+use JK\FacebookMessenger\Core\Attachment\FileAttachment;
 use JK\FacebookMessenger\Core\Attachment\TemplateAttachment;
 use JK\FacebookMessenger\Core\Attachment\ImageAttachment;
+use JK\FacebookMessenger\Core\Attachment\VideoAttachment;
 use JK\FacebookMessenger\Core\Button\PostbackButton;
 use JK\FacebookMessenger\Core\Button\WebUrlButton;
 use JK\FacebookMessenger\Core\Configuration\Configuration;
@@ -13,7 +16,7 @@ use JK\FacebookMessenger\Core\Element\ReceiptElement;
 use JK\FacebookMessenger\Core\Entity\Address;
 use JK\FacebookMessenger\Core\Entity\Adjustment;
 use JK\FacebookMessenger\Core\Entity\Summary;
-use JK\FacebookMessenger\Core\Payload\ImagePayload;
+use JK\FacebookMessenger\Core\Payload\MultimediaPayload;
 use JK\FacebookMessenger\Core\Template\ButtonTemplatePayload;
 use JK\FacebookMessenger\Core\Template\GenericTemplatePayload;
 use JK\FacebookMessenger\Core\Template\ReceiptTemplatePayload;
@@ -89,19 +92,89 @@ class Example {
         // Instantiate all the things
         $message = new Message();
         $imageAttachment = new ImageAttachment();
-        $imagePayload = new ImagePayload();
+        $multimediaPayload = new MultimediaPayload();
 
-        // Set ImagePayload specific parameters
-        $imagePayload->setUrl('https://placekitten.com/200/300');
+        // Set MultimediaPayload specific parameters
+        $multimediaPayload->setUrl('https://placekitten.com/200/300');
 
         // Set the Payload on the Attachment
-        $imageAttachment->setPayload($imagePayload);
+        $imageAttachment->setPayload($multimediaPayload);
 
         // Set the Attachment on the Payload
         $message->setAttachment($imageAttachment);
 
         return $message;
     }
+
+    /**
+     * @return Message
+     * Generate a video message
+     */
+    public function generateVideoMessage()
+    {
+        // Instantiate all the things
+        $message = new Message();
+        $videoAttachment = new VideoAttachment();
+        $multimediaPayload = new MultimediaPayload();
+
+        // Set MultimediaPayload specific parameters
+        $multimediaPayload->setUrl('https://site.com/video.mp4');
+
+        // Set the Payload on the Attachment
+        $videoAttachment->setPayload($multimediaPayload);
+
+        // Set the Attachment on the Payload
+        $message->setAttachment($videoAttachment);
+
+        return $message;
+    }
+
+    /**
+     * @return Message
+     * Generate a file message
+     */
+    public function generateFileMessage()
+    {
+        // Instantiate all the things
+        $message = new Message();
+        $fileAttachment = new FileAttachment();
+        $multimediaPayload = new MultimediaPayload();
+
+        // Set MultimediaPayload specific parameters
+        $multimediaPayload->setUrl('https://site.com/file.pdf');
+
+        // Set the Payload on the Attachment
+        $fileAttachment->setPayload($multimediaPayload);
+
+        // Set the Attachment on the Payload
+        $message->setAttachment($fileAttachment);
+
+        return $message;
+    }
+
+    /**
+     * @return Message
+     * Generate a audio message
+     */
+    public function generateAudioMessage()
+    {
+        // Instantiate all the things
+        $message = new Message();
+        $audioAttachment = new AudioAttachment();
+        $multimediaPayload = new MultimediaPayload();
+
+        // Set MultimediaPayload specific parameters
+        $multimediaPayload->setUrl('https://site.com/sound.mp3');
+
+        // Set the Payload on the Attachment
+        $audioAttachment->setPayload($multimediaPayload);
+
+        // Set the Attachment on the Payload
+        $message->setAttachment($audioAttachment);
+
+        return $message;
+    }
+
 
     /**
      * @return Message
